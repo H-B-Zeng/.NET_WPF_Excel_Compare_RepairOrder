@@ -59,9 +59,9 @@ namespace CompareExcelItem.Service
             return dt;
         }
 
-        public List<RepairOrder> ExcelToList(string excleFilePath, int columns)
+        public List<RepairOrder> ExcelToList(string excelFilePath, int excelColumns,string newPartName, string repairOrderName)
         {
-            FileInfo filePath = new FileInfo(excleFilePath);
+            FileInfo filePath = new FileInfo(excelFilePath);
             ExcelPackage ep = new ExcelPackage(filePath);
             List<RepairOrder> repairOrder = new List<RepairOrder>();
             List<RepairOrder> repairOrderList = new List<RepairOrder>();
@@ -70,7 +70,7 @@ namespace CompareExcelItem.Service
             {
                 foreach (var sheet in ep.Workbook.Worksheets)
                 {
-                    repairOrder = SheetToList(ep, sheet.Index, columns);
+                    repairOrder = SheetToList(ep, sheet.Index, excelColumns, newPartName, repairOrderName);
                     repairOrderList.AddRange(repairOrder);
                 }
                
@@ -84,7 +84,7 @@ namespace CompareExcelItem.Service
         }
 
 
-        public List<RepairOrder> SheetToList(ExcelPackage ep, int sheetIndex, int columns)
+        public List<RepairOrder> SheetToList(ExcelPackage ep, int sheetIndex, int columns, string newPartName, string repairOrderName)
         {
             ExcelWorksheet sheet = ep.Workbook.Worksheets[sheetIndex];
             int startRowNumber = sheet.Dimension.Start.Row + 1;//起始列編號，從1算起
@@ -120,10 +120,10 @@ namespace CompareExcelItem.Service
                 {
                     RepairOrder data = new RepairOrder();
 
-                    if (dr["整盒新品料號"].ToString().Length > 2  && dr["維修單號"].ToString().Length > 2)
+                    if (dr[newPartName].ToString().Length > 2  && dr[repairOrderName].ToString().Length > 2)
                     {
-                        data.NewPartNumber = dr["整盒新品料號"].ToString();
-                        data.RepairOrderNumber = dr["維修單號"].ToString();
+                        data.NewPartNumber = dr[newPartName].ToString();
+                        data.RepairOrderNumber = dr[repairOrderName].ToString();
                         repairOrders.Add(data);
                     }
                 }

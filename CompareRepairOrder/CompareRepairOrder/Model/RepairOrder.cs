@@ -21,8 +21,8 @@ namespace CompareRepairOrder.Model
         /// <summary>
         /// 數量
         /// </summary>
-        public string Quantity { get; set; }
+        public int Quantity { get; set; }
 
-
+        public List<string> RepairOrderNumberList { get; set; }
     }
 }

@@ -62,6 +62,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Service\CommonService.cs" />
     <Compile Include="Service\DataTableExtensions.cs" />
     <Compile Include="Service\ExportFileService.cs" />
     <Compile Include="Service\ImportFileService.cs" />

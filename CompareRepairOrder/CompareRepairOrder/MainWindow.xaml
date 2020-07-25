@@ -5,14 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CompareRepairOrder"
         mc:Ignorable="d"
-        Title="Compare Repair Order" Height="120" Width="400">
-    <Grid>
-        <Label Content="請選擇要比對的Excel" HorizontalAlignment="Left" Margin="13,18,0,0" VerticalAlignment="Top" Width="129"/>
+        Title="Compare Repair Order" Height="164" Width="462.5">
+    <Grid Margin="0,1,0,0">
+        <Label Content="請選擇要比對的Excel" HorizontalAlignment="Left" Margin="18,82,0,0" VerticalAlignment="Top" Width="128"/>
         <TextBox Name="txtFilePath" HorizontalAlignment="Left" Height="23" Margin="13,130,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="479" IsReadOnly="True" Visibility="Hidden"/>
-        <Button Content="Browser" HorizontalAlignment="Left" Margin="147,18,0,0" VerticalAlignment="Top" Width="75" Click="btnSelectExcel"/>
+        <Button Content="Browser" HorizontalAlignment="Left" Margin="145,84,0,0" VerticalAlignment="Top" Width="75" Click="btnSelectExcel"/>
         <Button Content="CheckData" HorizontalAlignment="Left" Margin="147,90,0,0" VerticalAlignment="Top" Width="75" Height="25" RenderTransformOrigin="1.559,0.12" Visibility="Hidden"/>
         <ComboBox  SelectedIndex="0" x:Name="ddlExcelSheets" HorizontalAlignment="Left" Margin="13,90,0,0" VerticalAlignment="Top" Width="120"  Visibility="Hidden"/>
-        <Label x:Name="label" Content="自動將比對結果匯出成Excel，並另存原本選擇Excel的同目錄" HorizontalAlignment="Left" Margin="10,53,0,0" VerticalAlignment="Top" Height="32" Width="333" />
+        <TextBox x:Name="txtNewPartName" HorizontalAlignment="Left" Height="24" Margin="37,44,0,0" TextWrapping="Wrap" Text="整盒新品料號" VerticalAlignment="Top" Width="120" />
+        <Label x:Name="label1" Content="用" HorizontalAlignment="Left" Margin="16,41,0,0" VerticalAlignment="Top" Height="27" Width="24"/>
+        <Label x:Name="label2" Content="去找" HorizontalAlignment="Left" Margin="162,42,0,0" VerticalAlignment="Top" Height="27" Width="37"/>
+        <TextBox x:Name="txtRepairOrderName" HorizontalAlignment="Left" Height="24" Margin="200,43,0,0" TextWrapping="Wrap" Text="維修單號" VerticalAlignment="Top" Width="120" />
+        <Label x:Name="label3" Content="原本Excel有幾欄" HorizontalAlignment="Left" Margin="16,7,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtExcelColumns" HorizontalAlignment="Left" Height="24" Margin="119,8,0,0" TextWrapping="Wrap" Text="14" VerticalAlignment="Top" Width="34" />
 
     </Grid>
 </Window>
